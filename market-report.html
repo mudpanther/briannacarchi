@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockland County Market Report | Brianna Carchi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.1),
+                        inset 0 1px 2px rgba(255, 255, 255, 1);
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .insight-box {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="brianna-carchi-website.html" class="back-btn">← Back to Home</a>
+        <h1>📊 Rockland County Market Report</h1>
+        <p>Current market insights and trends for Q4 2024 / Q1 2025</p>
+    </div>
+    
+    <div class="container">
+        <div class="content-card">
+            <h1>Rockland County Real Estate Market Overview</h1>
+            <p style="font-size: 1.15em; margin-bottom: 30px;">Stay informed about the latest trends, pricing, and opportunities in the Rockland County real estate market. This report provides valuable insights for both buyers and sellers.</p>
+            
+            <h2>Current Market Conditions</h2>
+            <p>The Rockland County real estate market continues to show strength and stability. Here are the key indicators:</p>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="number">Balanced</div>
+                    <div class="label">Market Type</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">30-45</div>
+                    <div class="label">Days on Market (avg)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Moderate</div>
+                    <div class="label">Inventory Levels</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Strong</div>
+                    <div class="label">Buyer Demand</div>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h3 style="color: #667eea; margin-bottom: 10px;">💡 Market Insight</h3>
+                <p>Rockland County offers a balanced market with opportunities for both buyers and sellers. The area continues to attract families and professionals seeking quality schools, convenient commutes to NYC, and a suburban lifestyle.</p>
+            </div>
+            
+            <h2>Popular Areas in Rockland County</h2>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li><strong>New City:</strong> Family-friendly community with excellent schools and amenities</li>
+                <li><strong>Nanuet:</strong> Shopping and dining hub with diverse housing options</li>
+                <li><strong>Pearl River:</strong> Charming village atmosphere with strong community ties</li>
+                <li><strong>West Nyack:</strong> Convenient location with modern developments</li>
+                <li><strong>Congers:</strong> Lakefront living and peaceful residential areas</li>
+            </ul>
+            
+            <h2>Market Trends & Predictions</h2>
+            
+            <div class="insight-box">
+                <h3 style="color: #667eea; margin-bottom: 10px;">📈 For Buyers</h3>
+                <p><strong>Opportunities:</strong> More balanced inventory means less competition and better negotiating power. Interest rates have stabilized, making it a good time for qualified buyers to enter the market.</p>
+                <p style="margin-top: 10px;"><strong>Action Steps:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>Get pre-approved to show you're a serious buyer</li>
+                    <li>Act quickly on well-priced properties</li>
+                    <li>Consider properties that have been on market 30+ days for negotiation opportunities</li>
+                    <li>Work with a local agent who knows the area well</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <h3 style="color: #667eea; margin-bottom: 10px;">💰 For Sellers</h3>
+                <p><strong>Opportunities:</strong> Quality homes in good condition are still selling quickly. Buyers are motivated and serious.</p>
+                <p style="margin-top: 10px;"><strong>Action Steps:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>Price competitively based on recent comparable sales</li>
+                    <li>Invest in staging and professional photography</li>
+                    <li>Make necessary repairs before listing</li>
+                    <li>Highlight unique features and recent upgrades</li>
+                    <li>Be flexible with showing times</li>
+                </ul>
+            </div>
+            
+            <h2>What's Driving the Market?</h2>
+            <ul style="margin-left: 20px; line-height: 2; margin-bottom: 30px;">
+                <li>🚆 <strong>Convenient NYC Commute:</strong> Easy access via Palisades Parkway and public transportation</li>
+                <li>🏫 <strong>Quality Schools:</strong> Highly-rated school districts attract families</li>
+                <li>🌳 <strong>Suburban Lifestyle:</strong> Balance of nature, community, and amenities</li>
+                <li>💼 <strong>Hybrid Work:</strong> More professionals seeking space for home offices</li>
+                <li>🏡 <strong>Variety of Housing:</strong> Options ranging from condos to single-family homes</li>
+            </ul>
+            
+            <h2>Investment Outlook</h2>
+            <p>Rockland County remains a strong market for real estate investment due to:</p>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>Consistent demand from NYC commuters</li>
+                <li>Strong rental market</li>
+                <li>Ongoing infrastructure improvements</li>
+                <li>Diverse economy with healthcare, education, and retail sectors</li>
+                <li>Natural appreciation over time</li>
+            </ul>
+            
+            <div class="cta-box">
+                <h2 style="color: white; margin: 0 0 15px 0;">Want a Personalized Market Analysis?</h2>
+                <p style="margin-bottom: 20px;">Let's discuss how current market conditions affect your specific situation - whether you're buying, selling, or investing.</p>
+                <a href="brianna-carchi-website.html#contact" class="cta-btn">Schedule a Consultation</a>
+                <a href="tel:+17542026827" class="cta-btn">📞 Call: (754) 202-6827</a>
+            </div>
+            
+            <div style="background: rgba(102, 126, 234, 0.05); padding: 30px; border-radius: 20px; margin-top: 30px;">
+                <p style="font-size: 0.9em; color: #4a5568; text-align: center;">
+                    <strong>Note:</strong> Market conditions can change. This report provides general trends and insights. For the most current data and personalized advice, please contact me directly. I have access to real-time MLS data and can provide specific information for your needs.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New City Neighborhood Guide | Brianna Carchi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.1),
+                        inset 0 1px 2px rgba(255, 255, 255, 1);
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+        }
+        
+        .neighborhood {
+            background: rgba(102, 126, 234, 0.03);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .neighborhood h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="brianna-carchi-website.html" class="back-btn">← Back to Home</a>
+        <h1>🏘️ New City & Rockland County Neighborhood Guide</h1>
+        <p>Discover the perfect community for your lifestyle</p>
+    </div>
+    
+    <div class="container">
+        <div class="content-card">
+            <h1>Welcome to Rockland County</h1>
+            <p style="font-size: 1.15em; margin-bottom: 30px;">Rockland County offers a perfect blend of suburban tranquility and urban convenience. Located just 30 miles north of Manhattan, our communities provide excellent schools, beautiful parks, diverse dining, and strong neighborhood connections.</p>
+            
+            <div class="neighborhood">
+                <h3>New City - The Heart of Rockland 💚</h3>
+                <p><strong>Character:</strong> New City serves as the county seat and offers a perfect balance of residential charm and practical amenities. It's an ideal location for families and professionals seeking quality of life.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏫</span>
+                        <div>
+                            <strong>Schools:</strong><br>
+                            Clarkstown Central School District (highly rated)
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏪</span>
+                        <div>
+                            <strong>Shopping:</strong><br>
+                            New City Shopping Center, local boutiques
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🌳</span>
+                        <div>
+                            <strong>Parks:</strong><br>
+                            Kennedy-Dells Park, Rockland Lake State Park
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🚗</span>
+                        <div>
+                            <strong>Commute:</strong><br>
+                            35-45 min to NYC via Palisades Parkway
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Best For:</strong> Families, first-time homebuyers, professionals seeking suburban lifestyle with city access</p>
+            </div>
+            
+            <div class="neighborhood">
+                <h3>Nanuet - Shopping & Dining Hub 🛍️</h3>
+                <p><strong>Character:</strong> Nanuet is known for its excellent shopping, diverse dining options, and convenient location. The area offers a mix of housing styles and easy highway access.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏫</span>
+                        <div>
+                            <strong>Schools:</strong><br>
+                            Nanuet school district
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🛒</span>
+                        <div>
+                            <strong>Shopping:</strong><br>
+                            Shops at Nanuet, dining & entertainment
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🚇</span>
+                        <div>
+                            <strong>Transit:</strong><br>
+                            Multiple bus routes to NYC
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏡</span>
+                        <div>
+                            <strong>Housing:</strong><br>
+                            Diverse options from condos to homes
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Best For:</strong> Those who want walkable amenities, diverse community, convenient lifestyle</p>
+            </div>
+            
+            <div class="neighborhood">
+                <h3>Pearl River - Village Charm ✨</h3>
+                <p><strong>Character:</strong> Pearl River maintains a charming village atmosphere with a strong sense of community. The area features tree-lined streets, local businesses, and excellent schools.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏫</span>
+                        <div>
+                            <strong>Schools:</strong><br>
+                            Pearl River school district (excellent)
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🎭</span>
+                        <div>
+                            <strong>Culture:</strong><br>
+                            Local theater, community events
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🚶</span>
+                        <div>
+                            <strong>Walkability:</strong><br>
+                            Pedestrian-friendly downtown
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏡</span>
+                        <div>
+                            <strong>Housing:</strong><br>
+                            Classic homes, family neighborhoods
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Best For:</strong> Families valuing education, community feel, traditional suburban life</p>
+            </div>
+            
+            <div class="neighborhood">
+                <h3>West Nyack - Modern Living 🌆</h3>
+                <p><strong>Character:</strong> West Nyack offers modern developments and convenient access to shopping and highways. It's a growing area with new construction and updated amenities.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🛍️</span>
+                        <div>
+                            <strong>Shopping:</strong><br>
+                            Palisades Center Mall nearby
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🆕</span>
+                        <div>
+                            <strong>Housing:</strong><br>
+                            New construction, townhomes
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🚗</span>
+                        <div>
+                            <strong>Access:</strong><br>
+                            Easy highway access (287, Palisades)
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏋️</span>
+                        <div>
+                            <strong>Fitness:</strong><br>
+                            Gyms, recreation facilities
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Best For:</strong> Young professionals, those seeking newer homes, convenience-focused buyers</p>
+            </div>
+            
+            <div class="neighborhood">
+                <h3>Congers - Lakefront Living 🏞️</h3>
+                <p><strong>Character:</strong> Congers offers a peaceful, nature-focused lifestyle with access to Lake Welch and beautiful parks. It's perfect for those who love outdoor activities.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏊</span>
+                        <div>
+                            <strong>Recreation:</strong><br>
+                            Lake access, hiking, swimming
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🌲</span>
+                        <div>
+                            <strong>Nature:</strong><br>
+                            Parks, trails, scenic views
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">😌</span>
+                        <div>
+                            <strong>Atmosphere:</strong><br>
+                            Quiet, peaceful neighborhoods
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span style="font-size: 1.5em;">🏡</span>
+                        <div>
+                            <strong>Housing:</strong><br>
+                            Variety of styles, lakefront options
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Best For:</strong> Nature lovers, outdoor enthusiasts, those seeking tranquility</p>
+            </div>
+            
+            <h2>Why Choose Rockland County?</h2>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>🚆 <strong>NYC Commute:</strong> 30-45 minutes via train, bus, or car</li>
+                <li>🏫 <strong>Excellent Schools:</strong> Multiple highly-rated school districts</li>
+                <li>🌳 <strong>Parks & Recreation:</strong> 30+ parks, hiking trails, lakes</li>
+                <li>🏥 <strong>Healthcare:</strong> Major hospitals and medical facilities</li>
+                <li>🍽️ <strong>Dining:</strong> Diverse restaurant scene</li>
+                <li>🎭 <strong>Culture:</strong> Theaters, museums, community events</li>
+                <li>🏪 <strong>Shopping:</strong> Major malls and local boutiques</li>
+                <li>👨‍👩‍👧‍👦 <strong>Family-Friendly:</strong> Safe, welcoming communities</li>
+            </ul>
+            
+            <div class="cta-box">
+                <h2 style="color: white; margin: 0 0 15px 0;">Ready to Find Your Perfect Neighborhood?</h2>
+                <p style="margin-bottom: 20px;">Let's schedule a personalized tour of the areas that match your lifestyle and needs!</p>
+                <a href="brianna-carchi-website.html#contact" class="cta-btn">Schedule a Tour</a>
+                <a href="tel:+17542026827" class="cta-btn">📞 Call: (754) 202-6827</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
