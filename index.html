@@ -132,6 +132,123 @@
             100% { transform: translate(50px, 50px); }
         }
 
+        /* Century 21 Logo Animation */
+        .c21-logo {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .c21-logo:hover {
+            filter: drop-shadow(0 8px 25px rgba(255, 255, 255, 0.5));
+            transform: scale(1.2);
+        }
+
+        .hero-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-orbit-left {
+            animation: orbitLeft 8s ease-in-out infinite;
+        }
+
+        .logo-orbit-right {
+            animation: orbitRight 8s ease-in-out infinite;
+        }
+
+        @keyframes orbitLeft {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(-15px, -20px) scale(1.1);
+            }
+            50% {
+                transform: translate(-25px, 0) scale(1);
+            }
+            75% {
+                transform: translate(-15px, 20px) scale(1.1);
+            }
+        }
+
+        @keyframes orbitRight {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(15px, 20px) scale(1.1);
+            }
+            50% {
+                transform: translate(25px, 0) scale(1);
+            }
+            75% {
+                transform: translate(15px, -20px) scale(1.1);
+            }
+        }
+
+        /* Header Contact Info */
+        .header-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item span {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-top {
+                flex-direction: column;
+            }
+            
+            .c21-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .header-contact {
+                gap: 15px;
+            }
+            
+            .contact-item {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+        }
+
         .hero h1 {
             font-size: 3.5em;
             margin-bottom: 10px;
@@ -1121,8 +1238,30 @@
 <body>
     <!-- Hero Section -->
     <div class="hero">
-        <h1>Brianna Carchi</h1>
-        <p class="title">Real Estate Salesperson</p>
+        <div class="hero-top">
+            <img src="c21.png" alt="Century 21 Full Service Realty" class="c21-logo logo-orbit-left">
+            <div style="text-align: center;">
+                <h1>Brianna Carchi</h1>
+                <p class="title">Real Estate Salesperson</p>
+            </div>
+            <img src="c21.png" alt="Century 21 Full Service Realty" class="c21-logo logo-orbit-right">
+        </div>
+        
+        <div class="header-contact">
+            <a href="tel:+17542026827" class="contact-item">
+                <span>📱</span>
+                <span>(754) 202-6827</span>
+            </a>
+            <a href="mailto:brianna@example.com" class="contact-item">
+                <span>✉️</span>
+                <span>Contact Me</span>
+            </a>
+            <a href="https://www.instagram.com/brisrealestate/" target="_blank" class="contact-item">
+                <span>📷</span>
+                <span>@brisrealestate</span>
+            </a>
+        </div>
+        
         <p class="tagline">Making Your Real Estate Dreams Come True, One Home at a Time 🏡✨</p>
         <a href="https://www.century21.com/real-estate-agent/profile/brianna-carchi-P80190503" target="_blank" class="cta-button">Book a Consultation</a>
         <a href="#contact" class="cta-button">Contact Me</a>
