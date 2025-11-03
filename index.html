@@ -76,21 +76,47 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 20%, rgba(240, 147, 251, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
 
+        /* Luxury particles overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(212, 175, 55, 0.3), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(255, 215, 0, 0.3), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(212, 175, 55, 0.2), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(184, 134, 11, 0.3), transparent);
+            background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+            pointer-events: none;
+            z-index: -1;
+            animation: shimmer 60s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
         /* Header/Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #0a1628 0%, #1a2f4d 30%, #2d4a6e 60%, #1a2f4d 100%);
             color: white;
             padding: 120px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 -2px 40px rgba(212, 175, 55, 0.1);
         }
 
         .hero::before {
@@ -101,9 +127,9 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(212,175,55,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
             background-size: auto, auto, cover;
             animation: heroWave 10s ease-in-out infinite;
         }
@@ -138,14 +164,11 @@
             height: 80px;
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
             transition: all 0.3s ease;
-            mix-blend-mode: multiply;
-            opacity: 0.9;
         }
 
         .c21-logo:hover {
             filter: drop-shadow(0 8px 25px rgba(255, 255, 255, 0.5));
             transform: scale(1.2);
-            opacity: 1;
         }
 
         .hero-top {
@@ -211,7 +234,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(212, 175, 55, 0.15);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 12px 20px;
@@ -219,13 +242,15 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(212, 175, 55, 0.3);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.6);
         }
 
         .contact-item span {
@@ -258,8 +283,10 @@
             font-weight: 700;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 60px rgba(212, 175, 55, 0.2);
             animation: fadeInUp 0.8s ease;
+            letter-spacing: 2px;
+            color: #ffffff;
         }
 
         @keyframes fadeInUp {
@@ -276,11 +303,15 @@
         .hero .title {
             font-size: 1.6em;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #d4af37;
             font-weight: 400;
             position: relative;
             z-index: 1;
             animation: fadeInUp 0.8s ease 0.2s both;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
         }
 
         .hero .tagline {
@@ -294,20 +325,22 @@
         .cta-button {
             display: inline-block;
             padding: 16px 45px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+            color: #0a1628;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.1em;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             margin: 10px;
-            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.35),
-                        inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 1;
             animation: fadeInUp 0.8s ease 0.6s both;
             overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .cta-button::before {
@@ -317,7 +350,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.6s;
         }
 
@@ -327,8 +360,10 @@
 
         .cta-button:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(245, 87, 108, 0.45),
-                        inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #f4d03f 100%);
         }
 
         .cta-button:active {
@@ -375,7 +410,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             transition: width 0.3s ease;
         }
 
@@ -384,7 +419,7 @@
         }
 
         nav a:hover {
-            color: #667eea;
+            color: #d4af37;
         }
 
         /* Container */
@@ -397,7 +432,7 @@
         /* About Section */
         .about-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 50%, #f6f9fc 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
             position: relative;
         }
 
@@ -408,7 +443,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -425,9 +460,10 @@
             width: 100%;
             max-width: 300px;
             border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.35),
-                        0 0 0 10px rgba(255, 255, 255, 0.8),
-                        0 0 0 11px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 30px 80px rgba(10, 22, 40, 0.3),
+                        0 0 0 10px rgba(255, 255, 255, 0.9),
+                        0 0 0 12px rgba(212, 175, 55, 0.6),
+                        0 0 60px rgba(212, 175, 55, 0.3);
             transition: transform 0.3s ease;
             object-fit: cover;
             aspect-ratio: 1;
@@ -435,9 +471,10 @@
 
         .profile-image:hover {
             transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 40px 100px rgba(102, 126, 234, 0.4),
-                        0 0 0 10px rgba(255, 255, 255, 0.8),
-                        0 0 0 11px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 40px 100px rgba(10, 22, 40, 0.4),
+                        0 0 0 10px rgba(255, 255, 255, 0.9),
+                        0 0 0 12px rgba(212, 175, 55, 0.8),
+                        0 0 80px rgba(212, 175, 55, 0.4);
         }
 
         .about-text h2 {
@@ -445,10 +482,11 @@
             margin-bottom: 25px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
         }
 
         .about-text p {
@@ -465,14 +503,14 @@
         }
 
         .language-badge {
-            background: rgba(102, 126, 234, 0.85);
+            background: rgba(212, 175, 55, 0.85);
             backdrop-filter: blur(30px) saturate(200%);
             -webkit-backdrop-filter: blur(30px) saturate(200%);
             color: white;
             padding: 12px 28px;
             border-radius: 30px;
             font-weight: 500;
-            box-shadow: 0 10px 35px rgba(102, 126, 234, 0.3),
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.3),
                         inset 0 1px 2px rgba(255, 255, 255, 0.5),
                         inset 0 -1px 2px rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -481,10 +519,10 @@
 
         .language-badge:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 45px rgba(102, 126, 234, 0.4),
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.4),
                         inset 0 1px 2px rgba(255, 255, 255, 0.5),
                         inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-            background: rgba(102, 126, 234, 0.9);
+            background: rgba(212, 175, 55, 0.9);
         }
 
         /* Services Section */
@@ -511,7 +549,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -561,18 +599,18 @@
 
         .service-card:hover {
             transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.2),
-                        0 4px 16px rgba(102, 126, 234, 0.1),
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.2),
+                        0 4px 16px rgba(212, 175, 55, 0.1),
                         inset 0 1px 2px rgba(255, 255, 255, 1),
                         inset 0 -1px 2px rgba(255, 255, 255, 0.5);
-            border: 1.5px solid rgba(102, 126, 234, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             background: rgba(255, 255, 255, 0.6);
         }
 
         .service-icon {
             font-size: 3.5em;
             margin-bottom: 20px;
-            filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3));
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
         }
 
         .service-card h3 {
@@ -599,7 +637,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -630,18 +668,18 @@
 
         .contact-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.15),
-                        0 4px 16px rgba(102, 126, 234, 0.1),
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.15),
+                        0 4px 16px rgba(212, 175, 55, 0.1),
                         inset 0 1px 2px rgba(255, 255, 255, 1),
                         inset 0 -1px 2px rgba(255, 255, 255, 0.5);
-            border: 1.5px solid rgba(102, 126, 234, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             background: rgba(255, 255, 255, 0.6);
         }
 
         .contact-icon {
             font-size: 3em;
             margin-bottom: 15px;
-            filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3));
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
         }
 
         .contact-card h3 {
@@ -658,14 +696,14 @@
         }
 
         .contact-card a {
-            color: #667eea;
+            color: #d4af37;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .contact-card a:hover {
-            color: #764ba2;
+            color: #b8941f;
         }
 
         /* Areas Served */
@@ -680,7 +718,7 @@
             margin-bottom: 50px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -694,7 +732,7 @@
 
         .area-badge {
             display: inline-block;
-            background: rgba(102, 126, 234, 0.9);
+            background: rgba(212, 175, 55, 0.9);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             color: white;
@@ -703,7 +741,7 @@
             font-size: 1.2em;
             font-weight: 500;
             margin: 12px;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.35),
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.35),
                         inset 0 1px 1px rgba(255, 255, 255, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -711,7 +749,7 @@
 
         .area-badge:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.45),
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.45),
                         inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
 
@@ -733,7 +771,7 @@
         }
 
         .footer-links a {
-            color: #f093fb;
+            color: #f4d03f;
             text-decoration: none;
             margin: 0 20px;
             font-weight: 500;
@@ -747,7 +785,7 @@
         /* Lead Capture Form Styles */
         .form-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             color: white;
         }
 
@@ -798,7 +836,7 @@
         .form-group select {
             width: 100%;
             padding: 15px 18px;
-            border: 2px solid rgba(102, 126, 234, 0.2);
+            border: 2px solid rgba(212, 175, 55, 0.2);
             border-radius: 12px;
             font-size: 1em;
             font-family: 'Poppins', sans-serif;
@@ -812,9 +850,9 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1),
-                        0 5px 20px rgba(102, 126, 234, 0.2);
+            border-color: #d4af37;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1),
+                        0 5px 20px rgba(212, 175, 55, 0.2);
             background: rgba(255, 255, 255, 0.95);
         }
 
@@ -826,7 +864,7 @@
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: rgba(102, 126, 234, 0.95);
+            background: rgba(212, 175, 55, 0.95);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             color: white;
@@ -836,13 +874,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 35px rgba(102, 126, 234, 0.35),
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.35),
                         inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(102, 126, 234, 0.45),
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.45),
                         inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
 
@@ -862,7 +900,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -893,11 +931,11 @@
 
         .testimonial-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.15),
-                        0 4px 16px rgba(102, 126, 234, 0.1),
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.15),
+                        0 4px 16px rgba(212, 175, 55, 0.1),
                         inset 0 1px 2px rgba(255, 255, 255, 1),
                         inset 0 -1px 2px rgba(255, 255, 255, 0.5);
-            border: 1.5px solid rgba(102, 126, 234, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             background: rgba(255, 255, 255, 0.55);
         }
 
@@ -907,7 +945,7 @@
             top: 20px;
             left: 25px;
             font-size: 4em;
-            color: #667eea;
+            color: #d4af37;
             opacity: 0.2;
             font-family: Georgia, serif;
         }
@@ -923,11 +961,11 @@
 
         .testimonial-author {
             font-weight: 600;
-            color: #667eea;
+            color: #d4af37;
         }
 
         .testimonial-stars {
-            color: #f5576c;
+            color: #d4af37;
             font-size: 1.2em;
             margin-bottom: 15px;
         }
@@ -944,7 +982,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -975,7 +1013,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1005,18 +1043,18 @@
 
         .insight-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.15),
-                        0 4px 16px rgba(102, 126, 234, 0.1),
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.15),
+                        0 4px 16px rgba(212, 175, 55, 0.1),
                         inset 0 1px 2px rgba(255, 255, 255, 1),
                         inset 0 -1px 2px rgba(255, 255, 255, 0.5);
-            border: 1.5px solid rgba(102, 126, 234, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             background: rgba(255, 255, 255, 0.6);
         }
 
         .insight-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1051,7 +1089,7 @@
             margin-bottom: 60px;
             font-size: 2.8em;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1082,11 +1120,11 @@
 
         .magnet-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.15),
-                        0 4px 16px rgba(102, 126, 234, 0.1),
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.15),
+                        0 4px 16px rgba(212, 175, 55, 0.1),
                         inset 0 1px 2px rgba(255, 255, 255, 1),
                         inset 0 -1px 2px rgba(255, 255, 255, 0.5);
-            border: 1.5px solid rgba(102, 126, 234, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             background: rgba(255, 255, 255, 0.6);
         }
 
@@ -1111,7 +1149,7 @@
         .download-btn {
             display: inline-block;
             padding: 14px 38px;
-            background: rgba(102, 126, 234, 0.9);
+            background: rgba(212, 175, 55, 0.9);
             backdrop-filter: blur(30px) saturate(200%);
             -webkit-backdrop-filter: blur(30px) saturate(200%);
             color: white;
@@ -1119,7 +1157,7 @@
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.35),
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.35),
                         inset 0 1px 2px rgba(255, 255, 255, 0.5),
                         inset 0 -1px 2px rgba(0, 0, 0, 0.1);
             border: 1.5px solid rgba(255, 255, 255, 0.5);
@@ -1127,10 +1165,10 @@
 
         .download-btn:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 16px 50px rgba(102, 126, 234, 0.45),
+            box-shadow: 0 16px 50px rgba(212, 175, 55, 0.45),
                         inset 0 1px 2px rgba(255, 255, 255, 0.5),
                         inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-            background: rgba(102, 126, 234, 0.95);
+            background: rgba(212, 175, 55, 0.95);
         }
 
         /* Sticky Floating CTA */
@@ -1352,10 +1390,10 @@
     </section>
 
     <!-- Success Stats Section -->
-    <section style="padding: 60px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <section style="padding: 60px 20px; background: linear-gradient(135deg, #0a1628 0%, #1a2f4d 50%, #2d4a6e 100%); color: white; box-shadow: inset 0 2px 40px rgba(212, 175, 55, 0.1);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="font-size: 2.5em; margin-bottom: 15px; color: white;">My Commitment to You 🤝</h2>
+                <h2 style="font-size: 2.5em; margin-bottom: 15px; color: #d4af37; text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);">My Commitment to You 🤝</h2>
                 <p style="font-size: 1.2em; opacity: 0.95;">What you can expect when working with me</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; text-align: center;">
@@ -1548,7 +1586,7 @@
                 <span class="area-badge">Pearl River</span>
                 <span class="area-badge">Surrounding Areas</span>
                 <p style="margin-top: 40px; font-size: 1.1em; color: #4a5568;">
-                    Not sure if I serve your area? <a href="#contact" style="color: #667eea; font-weight: 600; text-decoration: underline;">Contact me</a> and let's find out! I'm always happy to help or provide referrals.
+                    Not sure if I serve your area? <a href="#contact" style="color: #d4af37; font-weight: 600; text-decoration: underline;">Contact me</a> and let's find out! I'm always happy to help or provide referrals.
                 </p>
             </div>
         </div>
@@ -1607,7 +1645,7 @@
         <p>License #10401391608</p>
         <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">📱 Mobile-Friendly Website | Serving New City & Rockland County</p>
         <p style="margin-top: 20px;">
-            <a href="https://www.instagram.com/brisrealestate/" target="_blank" style="color: #f093fb; text-decoration: none; font-size: 1.15em; font-weight: 500; transition: color 0.3s ease;">
+            <a href="https://www.instagram.com/brisrealestate/" target="_blank" style="color: #f4d03f; text-decoration: none; font-size: 1.15em; font-weight: 500; transition: color 0.3s ease;">
                 📷 Follow @brisrealestate on Instagram
             </a>
         </p>
