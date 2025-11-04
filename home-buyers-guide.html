@@ -12,98 +12,266 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: #2d3748;
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 35% 45%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 65% 75%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            animation: gentleFloat 22s ease infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -30px) rotate(1deg); }
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 28% 42%, white, transparent),
+                radial-gradient(2px 2px at 62% 72%, white, transparent),
+                radial-gradient(1px 1px at 48% 58%, white, transparent),
+                radial-gradient(1px 1px at 88% 22%, white, transparent);
+            background-size: 260px 260px, 360px 360px, 310px 310px, 400px 400px;
+            animation: twinkle 68s linear infinite;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+        
+        @keyframes twinkle {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(140px, 140px); }
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(200, 50, 80, 0.35);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            animation: slideDown 0.6s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .back-btn {
             display: inline-block;
-            padding: 10px 25px;
-            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
             border-radius: 50px;
             text-decoration: none;
             color: white;
             margin-bottom: 20px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .content-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(30px) saturate(200%);
-            -webkit-backdrop-filter: blur(30px) saturate(200%);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.1),
-                        inset 0 1px 2px rgba(255, 255, 255, 1);
-            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
+            padding: 60px;
+            border-radius: 35px;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.15),
+                0 10px 40px rgba(247, 112, 98, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
+            animation: fadeInScale 0.8s ease;
+            transition: all 0.4s ease;
+        }
+        
+        .content-card:hover {
+            box-shadow: 
+                0 40px 110px rgba(0, 0, 0, 0.2),
+                0 15px 50px rgba(247, 112, 98, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
         
         h1 {
             color: #2d3748;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         h2 {
-            color: #667eea;
-            margin: 30px 0 15px 0;
-            font-size: 1.8em;
+            color: #f77062;
+            margin: 40px 0 20px 0;
+            font-size: 1.9em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f77062, #fe5196);
+            border-radius: 2px;
         }
         
         .step {
-            background: rgba(102, 126, 234, 0.05);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
+            background: rgba(247, 112, 98, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            border-left: 5px solid #f77062;
+            box-shadow: 0 10px 30px rgba(247, 112, 98, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInLeft 0.6s ease;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .step:hover {
+            transform: translateX(8px);
+            box-shadow: 0 20px 50px rgba(247, 112, 98, 0.15);
+            background: rgba(247, 112, 98, 0.12);
         }
         
         .step h3 {
-            color: #667eea;
-            margin-bottom: 10px;
+            color: #f77062;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .step p {
+            margin-bottom: 12px;
+        }
+        
+        .step ul {
+            margin-left: 20px;
+            margin-top: 15px;
+            line-height: 1.9;
+        }
+        
+        .step strong {
+            color: #f77062;
         }
         
         .cta-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(247, 112, 98, 0.95) 0%, rgba(254, 81, 150, 0.95) 100%);
+            backdrop-filter: blur(30px);
             color: white;
-            padding: 40px;
-            border-radius: 25px;
+            padding: 50px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(247, 112, 98, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
         
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
+            padding: 16px 45px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #f77062;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
-            transition: all 0.3s;
+            margin: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
         
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .content-card { padding: 30px 20px; border-radius: 25px; }
+            .header h1 { font-size: 1.8em; }
+            .step { padding: 25px; }
+            .cta-box { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -117,13 +285,13 @@
     <div class="container">
         <div class="content-card">
             <h2>Welcome to Your Home Buying Journey!</h2>
-            <p>Buying a home is one of the most exciting and important decisions you'll make. This comprehensive guide will walk you through every step of the process, from getting pre-approved to closing day.</p>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">Buying a home is one of the most exciting and important decisions you'll make. This comprehensive guide will walk you through every step of the process, from getting pre-approved to closing day.</p>
             
             <div class="step">
                 <h3>Step 1: Get Pre-Approved for a Mortgage</h3>
                 <p><strong>Timeline:</strong> 1-2 weeks before house hunting</p>
                 <p>Before you start looking at homes, get pre-approved for a mortgage. This shows sellers you're a serious buyer and helps you understand your budget.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Gather financial documents (tax returns, pay stubs, bank statements)</li>
                     <li>Check your credit score</li>
                     <li>Compare lenders and rates</li>
@@ -135,7 +303,7 @@
                 <h3>Step 2: Find the Right Real Estate Agent</h3>
                 <p><strong>Timeline:</strong> Before house hunting begins</p>
                 <p>A great agent will guide you through the entire process, negotiate on your behalf, and help you avoid costly mistakes.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Look for local market expertise</li>
                     <li>Check reviews and references</li>
                     <li>Ensure good communication and availability</li>
@@ -147,7 +315,7 @@
                 <h3>Step 3: Start House Hunting</h3>
                 <p><strong>Timeline:</strong> 2-8 weeks on average</p>
                 <p>Now the fun begins! Your agent will set up showings based on your criteria and budget.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Make a list of must-haves vs. nice-to-haves</li>
                     <li>Visit multiple properties</li>
                     <li>Take notes and photos</li>
@@ -160,7 +328,7 @@
                 <h3>Step 4: Make an Offer</h3>
                 <p><strong>Timeline:</strong> 1-2 days after finding your home</p>
                 <p>When you find "the one," your agent will help you craft a competitive offer.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Research comparable sales</li>
                     <li>Decide on your offer price</li>
                     <li>Include contingencies (inspection, financing, appraisal)</li>
@@ -173,7 +341,7 @@
                 <h3>Step 5: Home Inspection</h3>
                 <p><strong>Timeline:</strong> 7-10 days after offer acceptance</p>
                 <p>A professional inspector will examine the property for any issues.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Hire a licensed home inspector</li>
                     <li>Attend the inspection if possible</li>
                     <li>Review the inspection report carefully</li>
@@ -186,7 +354,7 @@
                 <h3>Step 6: Finalize Your Mortgage</h3>
                 <p><strong>Timeline:</strong> 30-45 days</p>
                 <p>Work with your lender to finalize your loan.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Complete all lender requirements</li>
                     <li>Property appraisal will be conducted</li>
                     <li>Maintain stable employment and finances</li>
@@ -199,7 +367,7 @@
                 <h3>Step 7: Final Walk-Through</h3>
                 <p><strong>Timeline:</strong> 1 day before closing</p>
                 <p>Visit the property one last time to ensure everything is in order.</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Verify agreed-upon repairs were completed</li>
                     <li>Check that appliances and systems work</li>
                     <li>Ensure the property is in good condition</li>
@@ -211,7 +379,7 @@
                 <h3>Step 8: Closing Day! 🎉</h3>
                 <p><strong>Timeline:</strong> Closing day</p>
                 <p>The final step - you'll sign documents and receive your keys!</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li>Bring a government-issued ID</li>
                     <li>Bring certified funds for closing costs</li>
                     <li>Review and sign all documents</li>
@@ -234,10 +402,10 @@
             
             <div class="cta-box">
                 <h2 style="color: white; margin: 0 0 15px 0;">Ready to Start Your Home Buying Journey?</h2>
-                <p style="margin-bottom: 0;">Let's work together to find your dream home! I'll guide you through every step of this process.</p>
+                <p style="margin-bottom: 25px; font-size: 1.1em;">Let's work together to find your dream home! I'll guide you through every step of this process.</p>
                 <a href="index.html#contact" class="cta-btn">Contact Brianna Today</a>
-                <br><br>
-                <a href="tel:+17542026827" class="cta-btn">📞 Call Now: (754) 202-6827</a>
+                <a href="tel:+17542026827" class="cta-btn">📞 Call: (754) 202-6827</a>
+                <a href="mailto:BriannaC@c21fullservicerealty.com" class="cta-btn">✉️ Email Brianna</a>
             </div>
         </div>
     </div>
