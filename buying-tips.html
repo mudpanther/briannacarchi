@@ -12,83 +12,231 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: #2d3748;
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 32% 48%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 68% 78%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            animation: oceanFlow 24s ease infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes oceanFlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 24% 44%, white, transparent),
+                radial-gradient(2px 2px at 64% 74%, white, transparent),
+                radial-gradient(1px 1px at 44% 64%, white, transparent),
+                radial-gradient(1px 1px at 84% 24%, white, transparent);
+            background-size: 280px 280px, 380px 380px, 330px 330px, 420px 420px;
+            animation: bubbleRise 72s linear infinite;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        @keyframes bubbleRise {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(150px, 150px); }
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(30, 80, 140, 0.4);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            animation: slideDown 0.6s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .back-btn {
             display: inline-block;
-            padding: 10px 25px;
-            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
             border-radius: 50px;
             text-decoration: none;
             color: white;
             margin-bottom: 20px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .content-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(30px) saturate(200%);
-            -webkit-backdrop-filter: blur(30px) saturate(200%);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.1),
-                        inset 0 1px 2px rgba(255, 255, 255, 1);
-            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
+            padding: 60px;
+            border-radius: 35px;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.15),
+                0 10px 40px rgba(58, 123, 213, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
+            animation: fadeInScale 0.8s ease;
+            transition: all 0.4s ease;
+        }
+        
+        .content-card:hover {
+            box-shadow: 
+                0 40px 110px rgba(0, 0, 0, 0.2),
+                0 15px 50px rgba(58, 123, 213, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
         
         h1 {
             color: #2d3748;
             margin-bottom: 20px;
             font-size: 2.5em;
+            background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         h2 {
-            color: #667eea;
-            margin: 30px 0 15px 0;
-            font-size: 1.8em;
+            color: #3a7bd5;
+            margin: 40px 0 20px 0;
+            font-size: 1.9em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+            border-radius: 2px;
         }
         
         .tip-box {
-            background: rgba(102, 126, 234, 0.05);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
+            background: rgba(58, 123, 213, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #3a7bd5;
+            box-shadow: 0 10px 30px rgba(58, 123, 213, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInRight 0.6s ease;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .tip-box:hover {
+            transform: translateX(-8px);
+            box-shadow: 0 20px 50px rgba(58, 123, 213, 0.15);
+            background: rgba(58, 123, 213, 0.12);
         }
         
         .tip-box h3 {
-            color: #667eea;
+            color: #3a7bd5;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.4em;
+        }
+        
+        .tip-box ul {
+            margin-left: 20px;
+            margin-top: 12px;
+            line-height: 1.9;
         }
         
         .warning-box {
-            background: rgba(245, 87, 108, 0.05);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #f5576c;
+            background: rgba(245, 87, 108, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #f5576c;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .warning-box:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.12);
         }
         
         .warning-box h3 {
@@ -96,33 +244,54 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.4em;
         }
         
         .cta-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(58, 123, 213, 0.95) 0%, rgba(0, 210, 255, 0.95) 100%);
+            backdrop-filter: blur(30px);
             color: white;
-            padding: 40px;
-            border-radius: 25px;
+            padding: 50px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(58, 123, 213, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
         
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
+            padding: 16px 45px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #3a7bd5;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin: 10px;
-            transition: all 0.3s;
+            margin: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
         
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .content-card { padding: 30px 20px; border-radius: 25px; }
+            .header h1 { font-size: 1.8em; }
+            .tip-box, .warning-box { padding: 20px; }
+            .cta-box { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -141,8 +310,8 @@
             <h2>Before You Start Looking</h2>
             
             <div class="tip-box">
-                <h3><span>💰</span> Get Your Finances in Order</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">💰</span> Get Your Finances in Order</h3>
+                <ul>
                     <li>Check your credit score and dispute any errors</li>
                     <li>Pay down high-interest debt</li>
                     <li>Save for down payment AND closing costs (2-5% of purchase price)</li>
@@ -153,9 +322,9 @@
             </div>
             
             <div class="tip-box">
-                <h3><span>🎯</span> Know What You Want (and Need)</h3>
+                <h3><span style="font-size: 1.5em;">🎯</span> Know What You Want (and Need)</h3>
                 <p>Make two lists:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
+                <ul>
                     <li><strong>Must-Haves:</strong> Deal-breakers (# bedrooms, location, schools, etc.)</li>
                     <li><strong>Nice-to-Haves:</strong> Features you'd like but can compromise on</li>
                 </ul>
@@ -163,8 +332,8 @@
             </div>
             
             <div class="tip-box">
-                <h3><span>🏡</span> Think Long-Term</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">🏡</span> Think Long-Term</h3>
+                <ul>
                     <li>Will this home meet your needs in 5-7 years?</li>
                     <li>Consider potential life changes (family growth, career moves)</li>
                     <li>Think about resale value</li>
@@ -175,8 +344,8 @@
             <h2>During Your Search</h2>
             
             <div class="tip-box">
-                <h3><span>👀</span> Look Beyond the Staging</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">👀</span> Look Beyond the Staging</h3>
+                <ul>
                     <li>Imagine the home with YOUR furniture and style</li>
                     <li>Check bones: roof, foundation, HVAC, plumbing, electrical</li>
                     <li>Look for signs of water damage, mold, or pest issues</li>
@@ -186,8 +355,8 @@
             </div>
             
             <div class="tip-box">
-                <h3><span>🏘️</span> Research the Neighborhood Thoroughly</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">🏘️</span> Research the Neighborhood Thoroughly</h3>
+                <ul>
                     <li>Drive around at different times (rush hour, evening, weekend)</li>
                     <li>Check school ratings even if you don't have kids (affects resale)</li>
                     <li>Research crime statistics</li>
@@ -197,21 +366,11 @@
                 </ul>
             </div>
             
-            <div class="tip-box">
-                <h3><span>📸</span> Document Everything</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Take photos and videos of each property</li>
-                    <li>Make notes about pros and cons</li>
-                    <li>Keep track of property details and pricing</li>
-                    <li>This helps when comparing multiple properties later</li>
-                </ul>
-            </div>
-            
             <h2>Making an Offer</h2>
             
             <div class="tip-box">
-                <h3><span>💵</span> Offer Strategically</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">💵</span> Offer Strategically</h3>
+                <ul>
                     <li>Research recent comparable sales (your agent will help)</li>
                     <li>Consider days on market and seller motivation</li>
                     <li>In competitive markets, come in strong initially</li>
@@ -221,8 +380,8 @@
             </div>
             
             <div class="tip-box">
-                <h3><span>🛡️</span> Protect Yourself with Contingencies</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">🛡️</span> Protect Yourself with Contingencies</h3>
+                <ul>
                     <li><strong>Inspection Contingency:</strong> Walk away or renegotiate if major issues found</li>
                     <li><strong>Financing Contingency:</strong> Cancel if you can't secure financing</li>
                     <li><strong>Appraisal Contingency:</strong> Renegotiate if home doesn't appraise</li>
@@ -233,35 +392,30 @@
             <h2>Common Mistakes to Avoid</h2>
             
             <div class="warning-box">
-                <h3><span>⚠️</span> DON'T Skip the Home Inspection</h3>
+                <h3><span style="font-size: 1.5em;">⚠️</span> DON'T Skip the Home Inspection</h3>
                 <p>It costs $300-500 but can save you tens of thousands. Even new construction should be inspected. Attend the inspection if possible.</p>
             </div>
             
             <div class="warning-box">
-                <h3><span>⚠️</span> DON'T Waive Contingencies Without Good Reason</h3>
+                <h3><span style="font-size: 1.5em;">⚠️</span> DON'T Waive Contingencies Without Good Reason</h3>
                 <p>In hot markets, you might feel pressure to waive contingencies. Be very careful - you could lose your earnest money or be stuck with a problem property.</p>
             </div>
             
             <div class="warning-box">
-                <h3><span>⚠️</span> DON'T Max Out Your Budget</h3>
+                <h3><span style="font-size: 1.5em;">⚠️</span> DON'T Max Out Your Budget</h3>
                 <p>Just because you're approved for a certain amount doesn't mean you should spend it all. Leave room for emergencies, maintenance, and lifestyle.</p>
             </div>
             
             <div class="warning-box">
-                <h3><span>⚠️</span> DON'T Fall in Love with One House</h3>
+                <h3><span style="font-size: 1.5em;">⚠️</span> DON'T Fall in Love with One House</h3>
                 <p>Stay objective. There are always other houses. Don't let emotions drive you to overpay or overlook red flags.</p>
-            </div>
-            
-            <div class="warning-box">
-                <h3><span>⚠️</span> DON'T Forget About Ongoing Costs</h3>
-                <p>Beyond the mortgage, budget for: property taxes, insurance, HOA fees, utilities, maintenance (1-2% of home value annually), and potential repairs.</p>
             </div>
             
             <h2>First-Time Buyer Specific Tips</h2>
             
             <div class="tip-box">
-                <h3><span>🌟</span> Special Considerations</h3>
-                <ul style="margin-left: 20px;">
+                <h3><span style="font-size: 1.5em;">🌟</span> Special Considerations</h3>
+                <ul>
                     <li><strong>First-Time Buyer Programs:</strong> Research local, state, and federal programs for assistance</li>
                     <li><strong>FHA Loans:</strong> Lower down payment options (3.5%)</li>
                     <li><strong>Don't Rush:</strong> Take your time to find the right home</li>
@@ -284,9 +438,10 @@
             
             <div class="cta-box">
                 <h2 style="color: white; margin: 0 0 15px 0;">Ready to Start Your Home Buying Journey?</h2>
-                <p style="margin-bottom: 20px;">Let's work together! I'll guide you through every step and help you avoid costly mistakes.</p>
+                <p style="margin-bottom: 25px; font-size: 1.1em;">Let's work together! I'll guide you through every step and help you avoid costly mistakes.</p>
                 <a href="index.html#contact" class="cta-btn">Schedule a Consultation</a>
                 <a href="tel:+17542026827" class="cta-btn">📞 Call: (754) 202-6827</a>
+                <a href="mailto:BriannaC@c21fullservicerealty.com" class="cta-btn">✉️ Email Brianna</a>
             </div>
         </div>
     </div>
