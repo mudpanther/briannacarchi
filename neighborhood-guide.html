@@ -12,121 +12,347 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: #2d3748;
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+            animation: backgroundShift 15s ease infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        
+        /* Floating particles */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent);
+            background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px, 400px 400px, 280px 280px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 200px 150px, 330px 200px;
+            animation: floatingParticles 60s linear infinite;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        
+        @keyframes floatingParticles {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .back-btn {
             display: inline-block;
-            padding: 10px 25px;
+            padding: 12px 30px;
             background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 50px;
             text-decoration: none;
             color: white;
             margin-bottom: 20px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .content-card {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(30px) saturate(200%);
-            -webkit-backdrop-filter: blur(30px) saturate(200%);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.1),
-                        inset 0 1px 2px rgba(255, 255, 255, 1);
-            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            padding: 60px;
+            border-radius: 35px;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.15),
+                0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
+            animation: fadeInScale 0.8s ease;
+            transition: all 0.4s ease;
+        }
+        
+        .content-card:hover {
+            box-shadow: 
+                0 40px 110px rgba(0, 0, 0, 0.2),
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         h1 {
             color: #2d3748;
             margin-bottom: 20px;
             font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         h2 {
             color: #667eea;
-            margin: 30px 0 15px 0;
-            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            font-size: 1.9em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
         
         .neighborhood {
-            background: rgba(102, 126, 234, 0.03);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 25px 0;
-            border-left: 4px solid #667eea;
+            background: rgba(102, 126, 234, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInLeft 0.6s ease;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .neighborhood:hover {
+            transform: translateX(5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            background: rgba(102, 126, 234, 0.12);
         }
         
         .neighborhood h3 {
             color: #667eea;
             margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .feature {
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
+            font-size: 1.6em;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 18px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+        
         .cta-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             color: white;
-            padding: 40px;
-            border-radius: 25px;
+            padding: 50px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
         
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: white;
+            padding: 16px 45px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: #667eea;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin: 10px;
-            transition: all 0.3s;
+            margin: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
         
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            background: white;
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUpScroll 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUpScroll {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .neighborhood {
+                padding: 25px;
+            }
+            
+            .cta-box {
+                padding: 35px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="brianna-carchi-website.html" class="back-btn">← Back to Home</a>
+        <a href="index.html" class="back-btn">← Back to Home</a>
         <h1>🏘️ New City & Rockland County Neighborhood Guide</h1>
         <p>Discover the perfect community for your lifestyle</p>
     </div>
@@ -136,7 +362,7 @@
             <h1>Welcome to Rockland County</h1>
             <p style="font-size: 1.15em; margin-bottom: 30px;">Rockland County offers a perfect blend of suburban tranquility and urban convenience. Located just 30 miles north of Manhattan, our communities provide excellent schools, beautiful parks, diverse dining, and strong neighborhood connections.</p>
             
-            <div class="neighborhood">
+            <div class="neighborhood fade-in">
                 <h3>New City - The Heart of Rockland 💚</h3>
                 <p><strong>Character:</strong> New City serves as the county seat and offers a perfect balance of residential charm and practical amenities. It's an ideal location for families and professionals seeking quality of life.</p>
                 
@@ -174,7 +400,7 @@
                 <p style="margin-top: 15px;"><strong>Best For:</strong> Families, first-time homebuyers, professionals seeking suburban lifestyle with city access</p>
             </div>
             
-            <div class="neighborhood">
+            <div class="neighborhood fade-in">
                 <h3>Nanuet - Shopping & Dining Hub 🛍️</h3>
                 <p><strong>Character:</strong> Nanuet is known for its excellent shopping, diverse dining options, and convenient location. The area offers a mix of housing styles and easy highway access.</p>
                 
@@ -212,7 +438,7 @@
                 <p style="margin-top: 15px;"><strong>Best For:</strong> Those who want walkable amenities, diverse community, convenient lifestyle</p>
             </div>
             
-            <div class="neighborhood">
+            <div class="neighborhood fade-in">
                 <h3>Pearl River - Village Charm ✨</h3>
                 <p><strong>Character:</strong> Pearl River maintains a charming village atmosphere with a strong sense of community. The area features tree-lined streets, local businesses, and excellent schools.</p>
                 
@@ -250,7 +476,7 @@
                 <p style="margin-top: 15px;"><strong>Best For:</strong> Families valuing education, community feel, traditional suburban life</p>
             </div>
             
-            <div class="neighborhood">
+            <div class="neighborhood fade-in">
                 <h3>West Nyack - Modern Living 🌆</h3>
                 <p><strong>Character:</strong> West Nyack offers modern developments and convenient access to shopping and highways. It's a growing area with new construction and updated amenities.</p>
                 
@@ -288,7 +514,7 @@
                 <p style="margin-top: 15px;"><strong>Best For:</strong> Young professionals, those seeking newer homes, convenience-focused buyers</p>
             </div>
             
-            <div class="neighborhood">
+            <div class="neighborhood fade-in">
                 <h3>Congers - Lakefront Living 🏞️</h3>
                 <p><strong>Character:</strong> Congers offers a peaceful, nature-focused lifestyle with access to Lake Welch and beautiful parks. It's perfect for those who love outdoor activities.</p>
                 
@@ -326,8 +552,8 @@
                 <p style="margin-top: 15px;"><strong>Best For:</strong> Nature lovers, outdoor enthusiasts, those seeking tranquility</p>
             </div>
             
-            <h2>Why Choose Rockland County?</h2>
-            <ul style="margin-left: 20px; line-height: 2;">
+            <h2 class="fade-in">Why Choose Rockland County?</h2>
+            <ul style="margin-left: 20px; line-height: 2;" class="fade-in">
                 <li>🚆 <strong>NYC Commute:</strong> 30-45 minutes via train, bus, or car</li>
                 <li>🏫 <strong>Excellent Schools:</strong> Multiple highly-rated school districts</li>
                 <li>🌳 <strong>Parks & Recreation:</strong> 30+ parks, hiking trails, lakes</li>
@@ -340,11 +566,32 @@
             
             <div class="cta-box">
                 <h2 style="color: white; margin: 0 0 15px 0;">Ready to Find Your Perfect Neighborhood?</h2>
-                <p style="margin-bottom: 20px;">Let's schedule a personalized tour of the areas that match your lifestyle and needs!</p>
-                <a href="brianna-carchi-website.html#contact" class="cta-btn">Schedule a Tour</a>
+                <p style="margin-bottom: 25px; font-size: 1.1em;">Let's schedule a personalized tour of the areas that match your lifestyle and needs!</p>
+                <a href="index.html#contact" class="cta-btn">Schedule a Tour</a>
                 <a href="tel:+17542026827" class="cta-btn">📞 Call: (754) 202-6827</a>
+                <a href="mailto:BriannaC@c21fullservicerealty.com" class="cta-btn">✉️ Email Brianna</a>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUpScroll 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
